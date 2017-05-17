@@ -52,44 +52,7 @@ export class PainPage {
     //              }
     //     };
     savePain(){
-    let painObserveration = {
-                 "resourceType": "Observation",
-                 "status": "final",
-                 "category": [
-                     {
-                         "coding": [
-                             {
-                                 "system": "http://hl7.org/fhir/observation-category",
-                                 "code": "survey",
-                                 "display": "Survey"
-                             }
-                         ],
-                         "text": "Survey"
-                     }
-                 ],
-                 "code": {
-                     "coding": [
-                         {
-                             "system": "http://loinc.org",
-                             "code": '72514-3',
-                             "display": 'Pain severity'
-                         }
-                     ]
-                 },
-                 "effectiveDateTime": new Date(),
-                 "valueQuantity": {
-                     "value": this.painValue,
-                 }
-        };
-
-      // Save the resource
-      midata.save(painObserveration)
-      .then(function() {
-          console.log('Saved PainValue');
-      })
-      .catch(function(error) {
-          console.log('There was an error!', error)
-      });
+      
     }
 
 }

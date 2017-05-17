@@ -28,13 +28,6 @@ export class WeightPage {
 
   // TODO : Save your BodyWeight in MIDATA. DO NOT FORGET TO CONFIRM THE CONSENT ON TEST.MIDATA.COOP
   saveWeight(){
-    // Create a BodyWeight Object and convert it to a Resource
-    let weightObj = new BodyWeight(this.weightValue, new Date()) as Resource;
-    // Save the Resource on Midata
-    midata.save(weightObj).then(function(){
-      console.info("Saved BodyWeight");
-    })
-
   }
 
 

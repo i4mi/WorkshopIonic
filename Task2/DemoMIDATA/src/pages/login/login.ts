@@ -14,14 +14,11 @@ export class LoginPage {
   rootPage: any = HomePage;
 
   constructor(public navCtrl: NavController) {
-
      midata = new Midata('https://test.midata.coop:9000', 'Name', 'AppSecret');
-        
+
   }
 
   // TODO : MODIFY WITH YOUR CREDENTIALS, SO THAT YOU CAN LOG IN
-
-
   login(){
     midata.login('name@example.ch', 'password').then(function() {
       console.info('User id:', midata.user.id);

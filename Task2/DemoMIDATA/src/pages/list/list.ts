@@ -31,21 +31,5 @@ export class ListPage {
   }
 // TODO : SEARCH FOR ALL BODYWEIGHTS WITH THIS LOINC http://loinc.org|3141-9
   updateWeight(){
-    //this.items = [];
-    midata.login('name@example.ch', 'Password').then(function() {
-      midata.search('Observation', {code: "http://loinc.org|3141-9"}).then(function(resources) {
-        this.ngZone.run(() => {
-          for(let i in resources){
-            console.info(resources[i].toJson().valueQuantity.value);
-            for (let i = 1; i < 11; i++) {
-              this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i
-              });
-            }
-          }
-        });
-      });
-    });
   }
 }
