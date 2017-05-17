@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Schmerz</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <div>
+    <ion-list>
+      <ion-item>
+        <ion-range [(ngModel)]="painValue" color="danger" pin="true" min="0" max="10">
+          <ion-label range-left>0</ion-label>
+          <ion-label range-right>10</ion-label>
+        </ion-range>
+      </ion-item>
+    </ion-list>
+  </div>
+  <button ion-button full (click)="savePain()">Speichern</button>
+
+</ion-content>

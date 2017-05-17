@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Gewicht</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label stacked>Gewicht in kg</ion-label>
+      <ion-input type="number" [(ngModel)]="weightValue" placeholder="67"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <button ion-button full (click)="saveWeight()">Speichern</button>
+
+</ion-content>
