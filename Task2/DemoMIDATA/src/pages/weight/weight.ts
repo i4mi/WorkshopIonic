@@ -17,24 +17,25 @@ export class WeightPage {
 
   constructor(public navCtrl: NavController) {
     // Create MIDATA-Object
-    midata = new Midata('https://test.midata.coop:9000', 'Name', 'AppSecret');
+    midata = new Midata('https://test.midata.coop:9000', 'Workshop', 'secret');
 
-    // Login in BodyWeight FHIR-Request
-    midata.login('user@example.com', 'Password').then(function() {
-          console.info("Logged in successfully");
+    // Login
+    midata.login('test@test.com', 'Testing12345').then(() => {
+      console.info('Logged in');
+    },(error)=> {
+        console.log('There was an error!', error)
     });
 
   }
 
   // TODO : Save your BodyWeight in MIDATA. DO NOT FORGET TO CONFIRM THE CONSENT ON TEST.MIDATA.COOP
   saveWeight(){
-    // Create a BodyWeight Object and convert it to a Resource
-    let weightObj = new BodyWeight(this.weightValue, new Date()) as Resource;
-    // Save the Resource on Midata
-    midata.save(weightObj).then(function(){
-      console.info("Saved BodyWeight");
-    })
-
+        // Create a BodyWeight Object and convert it to a Resource
+        let weightObj = new BodyWeight(this.weightValue, new Date()) as Resource;
+        // Save the Resource on Midata
+        midata.save(weightObj).then(function(){
+          console.info("Saved BodyWeight");
+        })
   }
 
 

@@ -13,11 +13,13 @@ export class PainPage {
 
     constructor(public navCtrl: NavController) {
       // Create MIDATA-Object
-      midata = new Midata('https://test.midata.coop:9000', 'Name', 'AppSecret');
+      midata = new Midata('https://test.midata.coop:9000', 'Workshop', 'secret');
 
-      // Login in BodyWeight FHIR-Request
-      midata.login('user@example.com', 'Password').then(function() {
-            console.info("Logged in successfully");
+      // Login
+      midata.login('test@test.com', 'Testing12345').then(() => {
+        console.info('Logged in');
+      },(error)=> {
+          console.log('There was an error!', error)
       });
     }
 
@@ -52,44 +54,46 @@ export class PainPage {
     //              }
     //     };
     savePain(){
-    let painObserveration = {
-                 "resourceType": "Observation",
-                 "status": "final",
-                 "category": [
-                     {
-                         "coding": [
-                             {
-                                 "system": "http://hl7.org/fhir/observation-category",
-                                 "code": "survey",
-                                 "display": "Survey"
-                             }
-                         ],
-                         "text": "Survey"
-                     }
-                 ],
-                 "code": {
-                     "coding": [
-                         {
-                             "system": "http://loinc.org",
-                             "code": '72514-3',
-                             "display": 'Pain severity'
-                         }
-                     ]
-                 },
-                 "effectiveDateTime": new Date(),
-                 "valueQuantity": {
-                     "value": this.painValue,
-                 }
-        };
 
-      // Save the resource
-      midata.save(painObserveration)
-      .then(function() {
-          console.log('Saved PainValue');
-      })
-      .catch(function(error) {
-          console.log('There was an error!', error)
-      });
+      let painObserveration = {
+                       "resourceType": "Observation",
+                       "status": "final",
+                       "category": [
+                           {
+                               "coding": [
+                                   {
+                                       "system": "http://hl7.org/fhir/observation-category",
+                                       "code": "survey",
+                                       "display": "Survey"
+                                   }
+                               ],
+                               "text": "Survey"
+                           }
+                       ],
+                       "code": {
+                           "coding": [
+                               {
+                                   "system": "http://loinc.org",
+                                   "code": '72514-3',
+                                   "display": 'Pain severity'
+                               }
+                           ]
+                       },
+                       "effectiveDateTime": new Date(),
+                       "valueQuantity": {
+                           "value": this.painValue,
+                       }
+              };
+
+
+            // Save the resource
+            midata.save(painObserveration).then(()=> {
+                console.log('Saved PainValue');
+            },(error) =>{
+                console.log('There was an error!', error)
+            });
+
+
     }
 
 }
