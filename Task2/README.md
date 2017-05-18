@@ -11,7 +11,7 @@ $ git clone git@github.com:i4mi/WorkshopIonic.git
 2. Navigate in your project root folder and install dependencies
 
 ```
-$ cd WorkshopIonic/Task1
+$ cd WorkshopIonic/Task2/DemoMIDATA
 $ npm install
 ```
 
