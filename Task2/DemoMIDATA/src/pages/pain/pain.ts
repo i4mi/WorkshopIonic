@@ -13,16 +13,23 @@ export class PainPage {
 
     constructor(public navCtrl: NavController) {
       // Create MIDATA-Object
-      midata = new Midata('https://test.midata.coop:9000', 'Name', 'AppSecret');
+      midata = new Midata('https://test.midata.coop:9000', 'AppName', 'AppSecret');
 
-      // Login in BodyWeight FHIR-Request
-      midata.login('user@example.com', 'Password').then(function() {
-            console.info("Logged in successfully");
+      // Login
+      midata.login('user@example.com', 'password').then(() => {
+        console.info('Logged in');
+      },(error)=> {
+          console.log('There was an error!', error)
       });
     }
 
     // TODO : Save PainValue in MIDATA. DO NOT FORGET TO CONFIRM THE CONSENT ON TEST.MIDATA.COOP
-    // {
+    savePain(){}
+
+}
+
+
+// {
     //              "resourceType": "Observation",
     //              "status": "final",
     //              "category": [
@@ -51,8 +58,3 @@ export class PainPage {
     //                  "value": this.painValue,
     //              }
     //     };
-    savePain(){
-      
-    }
-
-}

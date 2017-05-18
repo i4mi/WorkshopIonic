@@ -10,26 +10,24 @@ let midata : Midata;
 export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string}>;
-  data: Array<string> = [];
 
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private ngZone: NgZone) {
-    this.items = [];
-    this.data = [];
 
-    midata = new Midata('https://test.midata.coop:9000', 'Name', 'AppSecret');
+    // Create MIDATA-Object
+    midata = new Midata('https://test.midata.coop:9000', 'AppName', 'AppSecret');
 
-    // Login in BodyWeight FHIR-Request
+    // Login
+    midata.login('user@example.com', 'password').then(() => {
+      console.info('Logged in');
+    },(error)=> {
+        console.log('There was an error!', error)
+    });
 
-    // for (let i = 1; i < 11; i++) {
-    //   this.items.push({
-    //     title: 'Item ' + i,
-    //     note: 'This is item #' + i,
-    //   });
-    // }
   }
+
 // TODO : SEARCH FOR ALL BODYWEIGHTS WITH THIS LOINC http://loinc.org|3141-9
-  updateWeight(){
-  }
+  updateWeight(){}
 }
+
