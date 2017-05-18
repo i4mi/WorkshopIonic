@@ -24,35 +24,6 @@ export class PainPage {
     }
 
     // TODO : Save PainValue in MIDATA. DO NOT FORGET TO CONFIRM THE CONSENT ON TEST.MIDATA.COOP
-    // {
-    //              "resourceType": "Observation",
-    //              "status": "final",
-    //              "category": [
-    //                  {
-    //                      "coding": [
-    //                          {
-    //                              "system": "http://hl7.org/fhir/observation-category",
-    //                              "code": "survey",
-    //                              "display": "Survey"
-    //                          }
-    //                      ],
-    //                      "text": "Survey"
-    //                  }
-    //              ],
-    //              "code": {
-    //                  "coding": [
-    //                      {
-    //                          "system": "http://loinc.org",
-    //                          "code": '72514-3',
-    //                          "display": 'Pain severity'
-    //                      }
-    //                  ]
-    //              },
-    //              "effectiveDateTime": new Date(),
-    //              "valueQuantity": {
-    //                  "value": this.painValue,
-    //              }
-    //     };
     savePain(){
 
       let painObserveration = {

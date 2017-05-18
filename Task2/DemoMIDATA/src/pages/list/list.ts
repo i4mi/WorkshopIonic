@@ -14,7 +14,6 @@ export class ListPage {
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private ngZone: NgZone) {
-    // this.items = [];
 
     // Create MIDATA-Object
     midata = new Midata('https://test.midata.coop:9000', 'Workshop', 'secret');
@@ -48,11 +47,3 @@ export class ListPage {
       });
   }
 }
-
-
-// for (let i = 1; i < 11; i++) {
-//   this.items.push({
-//     title: 'Item ' + i,
-//     note: 'This is item #' + i
-//   });
-// }

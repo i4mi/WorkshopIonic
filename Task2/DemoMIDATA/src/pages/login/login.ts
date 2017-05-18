@@ -35,8 +35,7 @@ export class LoginPage {
       console.info('User id:', midata.user.id);
       this.navCtrl.setRoot(HomePage);
     },(error)=> {
-	      console.log('There was an error!', error)
-        midata.user.id = '';
+	      console.log('There was an error!', error);
     });
   }
 
